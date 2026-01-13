@@ -62,10 +62,14 @@ export class CurriculumService {
 
     if (data) {
       // Sort lessons by order
-      data.lessons = data.lessons?.sort((a: Lesson, b: Lesson) => a.order - b.order) || [];
+      const moduleData = data as CurriculumModuleWithLessons;
+      if (moduleData.lessons) {
+        moduleData.lessons = moduleData.lessons.sort((a: Lesson, b: Lesson) => a.order - b.order);
+      }
+      return moduleData;
     }
 
-    return data as CurriculumModuleWithLessons | null;
+    return null;
   }
 
   /**
@@ -88,10 +92,14 @@ export class CurriculumService {
     }
 
     if (data) {
-      data.lessons = data.lessons?.sort((a: Lesson, b: Lesson) => a.order - b.order) || [];
+      const moduleData = data as CurriculumModuleWithLessons;
+      if (moduleData.lessons) {
+        moduleData.lessons = moduleData.lessons.sort((a: Lesson, b: Lesson) => a.order - b.order);
+      }
+      return moduleData;
     }
 
-    return data as CurriculumModuleWithLessons | null;
+    return null;
   }
 
   /**

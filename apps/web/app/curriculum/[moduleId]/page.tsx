@@ -136,7 +136,7 @@ export default function ModuleDetailPage() {
   const router = useRouter();
   const moduleId = params.moduleId as string;
 
-  const module = modulesData[moduleId] || defaultModule;
+  const currentModule = modulesData[moduleId] || defaultModule;
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
 
   const getLessonIcon = (type: string) => {
@@ -214,9 +214,9 @@ export default function ModuleDetailPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
-                    Module {module.number}
+                    Module {currentModule.number}
                   </span>
-                  {module.progress === 100 && (
+                  {currentModule.progress === 100 && (
                     <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-green-500 flex items-center gap-1">
                       <CheckCircle2 size={14} />
                       Completed
@@ -224,23 +224,23 @@ export default function ModuleDetailPage() {
                   )}
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-bold mb-3">
-                  {module.title}
+                  {currentModule.title}
                 </h1>
                 <p className="text-lg text-muted-foreground mb-4">
-                  {module.description}
+                  {currentModule.description}
                 </p>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <Clock size={16} />
-                    {module.duration}
+                    {currentModule.duration}
                   </span>
                   <span className="flex items-center gap-1">
                     <BookOpen size={16} />
-                    {module.lessonsCount} lessons
+                    {currentModule.lessonsCount} lessons
                   </span>
                   <span className="flex items-center gap-1">
                     <Trophy size={16} />
-                    {module.progress}% complete
+                    {currentModule.progress}% complete
                   </span>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default function ModuleDetailPage() {
                         stroke="url(#progressGradient)"
                         strokeWidth="8"
                         strokeLinecap="round"
-                        strokeDasharray={`${module.progress * 2.51} 251`}
+                        strokeDasharray={`${currentModule.progress * 2.51} 251`}
                       />
                       <defs>
                         <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -277,7 +277,7 @@ export default function ModuleDetailPage() {
                       </defs>
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-2xl font-bold">{module.progress}%</span>
+                      <span className="text-2xl font-bold">{currentModule.progress}%</span>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground">Progress</p>
@@ -293,7 +293,7 @@ export default function ModuleDetailPage() {
                 <GlassCard className="p-6">
                   <h2 className="text-xl font-semibold mb-4">Lessons</h2>
                   <StaggerContainer className="space-y-3">
-                    {module.lessons.map((lesson, index) => {
+                    {currentModule.lessons.map((lesson, index) => {
                       const Icon = getLessonIcon(lesson.type);
                       const colorClass = getLessonColor(lesson.type);
 
@@ -371,7 +371,7 @@ export default function ModuleDetailPage() {
                     <h3 className="font-semibold">Learning Objectives</h3>
                   </div>
                   <ul className="space-y-3">
-                    {module.objectives.map((objective, index) => (
+                    {currentModule.objectives.map((objective, index) => (
                       <li key={index} className="flex items-start gap-3 text-sm">
                         <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-xs font-medium text-primary">{index + 1}</span>
