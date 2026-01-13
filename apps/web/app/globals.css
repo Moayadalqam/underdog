@@ -4,64 +4,72 @@
 
 @layer base {
   :root {
-    /* Light mode - Clean professional */
+    /* Premium Light mode - White background with Gold accent */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 217 84% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 217 84% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 192 95% 45%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 292 84% 55%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 192 95% 45%;
+    --popover-foreground: 217 84% 12%;
+    --primary: 44 85% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 30% 96%;
+    --secondary-foreground: 217 84% 12%;
+    --muted: 217 30% 96%;
+    --muted-foreground: 217 25% 45%;
+    --accent: 217 84% 12%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 20% 90%;
+    --input: 217 20% 90%;
+    --ring: 44 85% 52%;
     --radius: 0.75rem;
 
-    /* Custom colors */
-    --cyan: 192 95% 45%;
-    --cyan-glow: 192 95% 60%;
-    --magenta: 292 84% 55%;
-    --magenta-glow: 292 84% 70%;
+    /* Brand colors - Gold #e6b123, Navy #05193a */
+    --cyan: 44 85% 52%;
+    --cyan-glow: 44 85% 62%;
+    --magenta: 217 84% 20%;
+    --magenta-glow: 217 84% 30%;
+    --gold: 44 85% 52%;
+    --gold-glow: 44 85% 62%;
+    --navy: 217 84% 12%;
+    --navy-light: 217 60% 25%;
     --success: 142 76% 36%;
     --warning: 38 92% 50%;
   }
 
   .dark {
-    /* Dark mode - Bold & Energetic */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 192 95% 50%;
-    --primary-foreground: 222.2 47.4% 6%;
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 20.2% 55%;
-    --accent: 292 84% 60%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 47% 15%;
-    --input: 222 47% 15%;
-    --ring: 192 95% 50%;
+    /* Premium Dark mode - Navy background with Gold accent */
+    --background: 217 84% 8%;
+    --foreground: 0 0% 98%;
+    --card: 217 84% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 217 84% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 44 85% 52%;
+    --primary-foreground: 217 84% 8%;
+    --secondary: 217 60% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217 60% 15%;
+    --muted-foreground: 217 20% 60%;
+    --accent: 44 85% 52%;
+    --accent-foreground: 217 84% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 60% 18%;
+    --input: 217 60% 18%;
+    --ring: 44 85% 52%;
 
-    /* Custom colors - Dark mode */
-    --cyan: 192 95% 55%;
-    --cyan-glow: 192 95% 65%;
-    --magenta: 292 84% 60%;
-    --magenta-glow: 292 84% 75%;
+    /* Brand colors - Dark mode */
+    --cyan: 44 85% 55%;
+    --cyan-glow: 44 85% 65%;
+    --magenta: 217 60% 30%;
+    --magenta-glow: 217 60% 40%;
+    --gold: 44 85% 55%;
+    --gold-glow: 44 85% 65%;
+    --navy: 217 84% 12%;
+    --navy-light: 217 60% 30%;
   }
 }
 
@@ -87,31 +95,37 @@
 
   /* Glow effects */
   .glow-cyan {
-    box-shadow: 0 0 20px hsl(var(--cyan) / 0.3),
-                0 0 40px hsl(var(--cyan) / 0.2),
-                0 0 60px hsl(var(--cyan) / 0.1);
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3),
+                0 0 40px hsl(var(--gold) / 0.2),
+                0 0 60px hsl(var(--gold) / 0.1);
   }
 
   .glow-magenta {
-    box-shadow: 0 0 20px hsl(var(--magenta) / 0.3),
-                0 0 40px hsl(var(--magenta) / 0.2),
-                0 0 60px hsl(var(--magenta) / 0.1);
+    box-shadow: 0 0 20px hsl(var(--navy) / 0.3),
+                0 0 40px hsl(var(--navy) / 0.2),
+                0 0 60px hsl(var(--navy) / 0.1);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3),
+                0 0 40px hsl(var(--gold) / 0.2),
+                0 0 60px hsl(var(--gold) / 0.1);
   }
 
   .glow-subtle {
-    box-shadow: 0 0 30px hsl(var(--cyan) / 0.15);
+    box-shadow: 0 0 30px hsl(var(--gold) / 0.15);
   }
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--cyan))] to-[hsl(var(--magenta))];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--navy-light))];
   }
 
   /* Animated gradient border */
   .gradient-border {
     position: relative;
     background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(var(--cyan)), hsl(var(--magenta))) border-box;
+                linear-gradient(135deg, hsl(var(--gold)), hsl(var(--navy))) border-box;
     border: 1px solid transparent;
   }
 
@@ -126,7 +140,7 @@
     border: 1px solid transparent;
     background:
       linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-      conic-gradient(from var(--angle), hsl(var(--cyan)), hsl(var(--magenta)), hsl(var(--cyan))) border-box;
+      conic-gradient(from var(--angle), hsl(var(--gold)), hsl(var(--navy)), hsl(var(--gold))) border-box;
     animation: border-spin 4s linear infinite;
   }
 
@@ -178,6 +192,15 @@
   }
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  /* Slow pulse */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
   }
 }
 

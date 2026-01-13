@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   title: 'Underdog AI - Sales Training Platform',
   description: 'AI-powered cold calling practice and sales training',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.jpg',
+    apple: '/logo.jpg',
   },
 };
 

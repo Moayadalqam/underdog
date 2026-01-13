@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Mic,
@@ -245,9 +246,7 @@ export default function HomePage() {
       <footer className="py-8 px-4 border-t border-border">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan to-magenta flex items-center justify-center">
-              <span className="text-white font-bold text-sm">U</span>
-            </div>
+            <Image src="/logo.jpg" alt="Underdog" width={32} height={32} className="rounded-lg" />
             <span className="font-semibold">Underdog AI</span>
           </div>
           <p className="text-sm text-muted-foreground">

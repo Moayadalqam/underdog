@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -13,6 +14,7 @@ import {
   X,
   LogOut,
   User,
+  MessageSquare,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
@@ -22,6 +24,7 @@ import { useAuth } from '@/hooks/use-auth';
 const navItems = [
   { href: '/roleplay', label: 'Role-Play', icon: Mic },
   { href: '/curriculum', label: 'Curriculum', icon: BookOpen },
+  { href: '/objections', label: 'Objections', icon: MessageSquare },
   { href: '/analytics', label: 'Analytics', icon: BarChart3 },
   { href: '/recordings', label: 'Recordings', icon: FileAudio },
 ];
@@ -43,9 +46,7 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan to-magenta flex items-center justify-center shadow-lg shadow-cyan/20 group-hover:shadow-cyan/40 transition-shadow">
-                <span className="text-white font-bold text-lg">U</span>
-              </div>
+              <Image src="/logo.jpg" alt="Underdog" width={40} height={40} className="rounded-xl shadow-lg shadow-cyan/20 group-hover:shadow-cyan/40 transition-shadow" />
               <span className="font-bold text-xl hidden sm:block">
                 <span className="gradient-text">Underdog</span>
               </span>
