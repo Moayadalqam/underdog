@@ -4,13 +4,28 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const redirect = searchParams.get('redirect') || '/roleplay';
+  const token_hash = searchParams.get('token_hash');
+  const type = searchParams.get('type');
+  const next = searchParams.get('next') || searchParams.get('redirect') || '/roleplay';
 
+  const supabase = await createClient();
+
+  // Handle OAuth callback (code exchange)
   if (code) {
-    const supabase = await createClient();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      return NextResponse.redirect(`${origin}${redirect}`);
+      return NextResponse.redirect(`${origin}${next}`);
+    }
+  }
+
+  // Handle email confirmation (token_hash)
+  if (token_hash && type) {
+    const { error } = await supabase.auth.verifyOtp({
+      token_hash,
+      type: type as 'signup' | 'recovery' | 'invite' | 'email',
+    });
+    if (!error) {
+      return NextResponse.redirect(`${origin}${next}`);
     }
   }
 
