@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import {
   BookOpen,
   CheckCircle2,
@@ -236,21 +236,25 @@ export default function CurriculumPage() {
               const StatusIcon = config.icon;
               const isLocked = module.status === 'locked';
 
+              const CardWrapper = isLocked ? 'div' : Link;
+              const cardProps = isLocked ? {} : { href: `/curriculum/${module.number}` };
+
               return (
                 <StaggerItem key={module.number}>
-                  <motion.div
-                    whileHover={!isLocked ? { scale: 1.02, y: -4 } : {}}
-                    whileTap={!isLocked ? { scale: 0.98 } : {}}
-                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  >
-                    <div
-                      className={cn(
-                        'relative rounded-2xl border p-6 transition-colors h-full',
-                        isLocked
-                          ? 'bg-card/50 border-border/50 opacity-60'
-                          : 'bg-card border-border hover:border-primary/50 cursor-pointer'
-                      )}
+                  <CardWrapper {...cardProps}>
+                    <motion.div
+                      whileHover={!isLocked ? { scale: 1.02, y: -4 } : {}}
+                      whileTap={!isLocked ? { scale: 0.98 } : {}}
+                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                     >
+                      <div
+                        className={cn(
+                          'relative rounded-2xl border p-6 transition-colors h-full',
+                          isLocked
+                            ? 'bg-card/50 border-border/50 opacity-60'
+                            : 'bg-card border-border hover:border-primary/50 cursor-pointer'
+                        )}
+                      >
                       {/* Module number badge */}
                       <div className="flex items-start justify-between mb-4">
                         <div
@@ -333,8 +337,9 @@ export default function CurriculumPage() {
                           <ChevronRight size={14} className="ml-1" />
                         </Button>
                       )}
-                    </div>
-                  </motion.div>
+                      </div>
+                    </motion.div>
+                  </CardWrapper>
                 </StaggerItem>
               );
             })}
