@@ -40,8 +40,8 @@ function LoginForm() {
       return;
     }
 
-    router.push(redirect);
-    router.refresh();
+    // Use window.location for full page reload to ensure cookies are set
+    window.location.href = redirect;
   };
 
   const handleGoogleLogin = async () => {
