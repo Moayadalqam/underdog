@@ -1,0 +1,93 @@
+{
+  "id": "mod-01",
+  "number": 1,
+  "title": "Introduction to Cold Calling",
+  "description": "Master the fundamentals of cold calling, from mindset to preparation.",
+  "lessons": [
+    {
+      "id": "mod-01-les-01",
+      "moduleId": "mod-01",
+      "title": "The Cold Calling Mindset",
+      "order": 1,
+      "content": "Cold calling success starts with the right mindset. In this lesson, you'll learn how to overcome call reluctance and approach each call with confidence.",
+      "objectives": [
+        "Understand why cold calling remains effective",
+        "Develop a growth mindset for sales",
+        "Learn techniques to overcome call anxiety"
+      ],
+      "keyPoints": [
+        "Rejection is redirection, not failure",
+        "Each call is practice, regardless of outcome",
+        "Confidence comes from preparation"
+      ],
+      "exercises": [
+        {
+          "id": "mod-01-les-01-ex-01",
+          "type": "reflection",
+          "title": "Call Reluctance Self-Assessment",
+          "instructions": "Rate your comfort level with cold calling on a scale of 1-10 and identify your top 3 concerns."
+        }
+      ]
+    },
+    {
+      "id": "mod-01-les-02",
+      "moduleId": "mod-01",
+      "title": "Pre-Call Research",
+      "order": 2,
+      "content": "Effective cold calls start before you dial. Learn how to research prospects and personalize your approach.",
+      "objectives": [
+        "Identify key information to gather before calling",
+        "Use LinkedIn and company websites effectively",
+        "Create personalized opening hooks"
+      ],
+      "keyPoints": [
+        "5 minutes of research can save 50 failed calls",
+        "Find trigger events and pain points",
+        "Personalization increases connection rates 3x"
+      ],
+      "exercises": [
+        {
+          "id": "mod-01-les-02-ex-01",
+          "type": "practice",
+          "title": "Research a Real Prospect",
+          "instructions": "Choose a company in your target market and spend 5 minutes gathering key information. Document what you find."
+        }
+      ]
+    },
+    {
+      "id": "mod-01-les-03",
+      "moduleId": "mod-01",
+      "title": "Setting Up for Success",
+      "order": 3,
+      "content": "Your environment and tools matter. Learn how to create an optimal calling setup.",
+      "objectives": [
+        "Set up an effective calling environment",
+        "Organize your tools and scripts",
+        "Establish a calling routine"
+      ],
+      "keyPoints": [
+        "Eliminate distractions during call blocks",
+        "Have your script and notes easily accessible",
+        "Stand up to project more energy"
+      ],
+      "exercises": [
+        {
+          "id": "mod-01-les-03-ex-01",
+          "type": "practice",
+          "title": "Create Your Calling Station",
+          "instructions": "Set up your ideal calling environment and take a photo of your setup."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "mod-01-scn-01",
+      "moduleId": "mod-01",
+      "title": "First Call Jitters",
+      "description": "Practice making your first cold call of the day to a friendly gatekeeper.",
+      "difficulty": 1,
+      "personaHint": "Use the friendly-manager persona for a supportive first interaction."
+    }
+  ]
+}

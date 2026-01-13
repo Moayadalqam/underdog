@@ -1,0 +1,155 @@
+{
+  "category": "common",
+  "objections": [
+    {
+      "id": "obj-common-01",
+      "category": "common",
+      "text": "I'm not interested",
+      "variations": [
+        "Not interested, thanks",
+        "We're not looking for anything right now",
+        "I'm good, thanks",
+        "No thanks, we're all set"
+      ],
+      "difficulty": 2,
+      "frequency": "common",
+      "tags": ["brush-off", "early-stage", "opening"],
+      "suggestedResponses": [
+        {
+          "id": "obj-common-01-resp-01",
+          "technique": "clarify",
+          "response": "I appreciate that - most people aren't interested until they see how we've helped companies like [similar company] reduce [pain point] by [percentage]. Would it be worth 30 seconds to see if this applies to you?",
+          "explanation": "Acknowledge their position while creating curiosity with a specific result.",
+          "effectiveness": 4
+        },
+        {
+          "id": "obj-common-01-resp-02",
+          "technique": "acknowledge",
+          "response": "That's completely fair - you probably get a lot of these calls. I'm actually not trying to sell you anything today. I just wanted to ask: [relevant discovery question]?",
+          "explanation": "Disarm by acknowledging and pivoting to discovery.",
+          "effectiveness": 3
+        }
+      ]
+    },
+    {
+      "id": "obj-common-02",
+      "category": "common",
+      "text": "We don't have budget for this",
+      "variations": [
+        "There's no budget",
+        "We can't afford it right now",
+        "Budget is tight",
+        "We've already allocated our budget"
+      ],
+      "difficulty": 3,
+      "frequency": "common",
+      "tags": ["budget", "pricing", "mid-stage"],
+      "suggestedResponses": [
+        {
+          "id": "obj-common-02-resp-01",
+          "technique": "clarify",
+          "response": "I understand budget is always a consideration. Help me understand - if budget weren't a factor, is this something that would solve a real problem for you?",
+          "explanation": "Isolate budget from value to understand if there's genuine interest.",
+          "effectiveness": 4
+        },
+        {
+          "id": "obj-common-02-resp-02",
+          "technique": "reframe",
+          "response": "That's exactly why I called. Our clients typically see [ROI metric] within [timeframe]. Would it help if I showed you how the investment pays for itself?",
+          "explanation": "Reframe cost as investment with clear ROI.",
+          "effectiveness": 4
+        }
+      ]
+    },
+    {
+      "id": "obj-common-03",
+      "category": "common",
+      "text": "Send me some information",
+      "variations": [
+        "Just email me something",
+        "Can you send me a brochure?",
+        "I'll look at your website",
+        "Send me the details and I'll review"
+      ],
+      "difficulty": 2,
+      "frequency": "common",
+      "tags": ["brush-off", "stall", "early-stage"],
+      "suggestedResponses": [
+        {
+          "id": "obj-common-03-resp-01",
+          "technique": "clarify",
+          "response": "Happy to do that. So I can send you the most relevant information - what specifically would be most useful for you to see?",
+          "explanation": "Qualify the request to maintain engagement and learn about needs.",
+          "effectiveness": 4
+        },
+        {
+          "id": "obj-common-03-resp-02",
+          "technique": "isolate",
+          "response": "Absolutely. Quick question - if what I send addresses [specific pain point], would you be open to a brief call to discuss?",
+          "explanation": "Get commitment to next step before sending materials.",
+          "effectiveness": 5
+        }
+      ]
+    },
+    {
+      "id": "obj-common-04",
+      "category": "common",
+      "text": "I need to think about it",
+      "variations": [
+        "Let me think it over",
+        "I need some time to consider",
+        "I want to sleep on it",
+        "Give me a few days"
+      ],
+      "difficulty": 3,
+      "frequency": "common",
+      "tags": ["stall", "late-stage", "decision"],
+      "suggestedResponses": [
+        {
+          "id": "obj-common-04-resp-01",
+          "technique": "clarify",
+          "response": "That makes sense - this is an important decision. What specifically would you want to think through? Maybe I can help clarify something.",
+          "explanation": "Uncover the real concern hidden behind the stall.",
+          "effectiveness": 4
+        },
+        {
+          "id": "obj-common-04-resp-02",
+          "technique": "isolate",
+          "response": "Of course. Often when people say that, there's a specific concern holding them back. Is there anything about [price/timing/fit] that's giving you pause?",
+          "explanation": "Directly but politely surface the real objection.",
+          "effectiveness": 4
+        }
+      ]
+    },
+    {
+      "id": "obj-common-05",
+      "category": "common",
+      "text": "We already have a solution",
+      "variations": [
+        "We're already working with someone",
+        "We have a vendor for that",
+        "We're happy with what we have",
+        "We use [competitor]"
+      ],
+      "difficulty": 3,
+      "frequency": "common",
+      "tags": ["competitor", "status-quo", "mid-stage"],
+      "suggestedResponses": [
+        {
+          "id": "obj-common-05-resp-01",
+          "technique": "acknowledge",
+          "response": "That's great that you have something in place. Many of our best clients came to us from [competitor]. Out of curiosity, what do you like most about your current solution?",
+          "explanation": "Acknowledge and gather intelligence about current satisfaction.",
+          "effectiveness": 4
+        },
+        {
+          "id": "obj-common-05-resp-02",
+          "technique": "clarify",
+          "response": "Makes sense. If you could wave a magic wand and improve one thing about your current setup, what would it be?",
+          "explanation": "Uncover gaps in current solution without being confrontational.",
+          "effectiveness": 5
+        }
+      ]
+    }
+  ]
+}

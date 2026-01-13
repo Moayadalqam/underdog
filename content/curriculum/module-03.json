@@ -1,0 +1,128 @@
+{
+  "id": "mod-03",
+  "number": 3,
+  "title": "Discovery Questions",
+  "description": "Master the art of asking questions that uncover needs and build rapport.",
+  "lessons": [
+    {
+      "id": "mod-03-les-01",
+      "moduleId": "mod-03",
+      "title": "The Power of Questions",
+      "order": 1,
+      "content": "Great salespeople ask great questions. Learn why discovery is the foundation of consultative selling.",
+      "objectives": [
+        "Understand why questions matter more than pitching",
+        "Learn the discovery mindset",
+        "Recognize common questioning mistakes"
+      ],
+      "keyPoints": [
+        "The person asking questions controls the conversation",
+        "Discovery uncovers needs you can solve",
+        "Questions build trust faster than statements"
+      ],
+      "exercises": [
+        {
+          "id": "mod-03-les-01-ex-01",
+          "type": "reflection",
+          "title": "Question Audit",
+          "instructions": "Record your next 3 calls and count the ratio of questions to statements."
+        }
+      ]
+    },
+    {
+      "id": "mod-03-les-02",
+      "moduleId": "mod-03",
+      "title": "Open vs. Closed Questions",
+      "order": 2,
+      "content": "Different questions serve different purposes. Learn when to use open and closed questions strategically.",
+      "objectives": [
+        "Distinguish between open and closed questions",
+        "Know when to use each type",
+        "Practice transitioning between them"
+      ],
+      "keyPoints": [
+        "Open questions explore, closed questions confirm",
+        "Start broad, then narrow down",
+        "Closed questions move toward commitment"
+      ],
+      "exercises": [
+        {
+          "id": "mod-03-les-02-ex-01",
+          "type": "practice",
+          "title": "Question Type Drill",
+          "instructions": "Convert 10 closed questions into open questions, and vice versa."
+        }
+      ]
+    },
+    {
+      "id": "mod-03-les-03",
+      "moduleId": "mod-03",
+      "title": "SPIN Questioning",
+      "order": 3,
+      "content": "The SPIN framework (Situation, Problem, Implication, Need-payoff) is a proven discovery methodology.",
+      "objectives": [
+        "Understand the SPIN framework",
+        "Create SPIN question sequences",
+        "Apply SPIN to your sales process"
+      ],
+      "keyPoints": [
+        "Situation questions gather context",
+        "Problem questions uncover pain",
+        "Implication questions amplify urgency",
+        "Need-payoff questions let them sell themselves"
+      ],
+      "exercises": [
+        {
+          "id": "mod-03-les-03-ex-01",
+          "type": "roleplay",
+          "title": "SPIN Sequence Practice",
+          "instructions": "Conduct a full SPIN discovery with the AI prospect.",
+          "scenarioId": "mod-03-scn-01"
+        }
+      ]
+    },
+    {
+      "id": "mod-03-les-04",
+      "moduleId": "mod-03",
+      "title": "Active Listening",
+      "order": 4,
+      "content": "Asking great questions means nothing if you don't listen to the answers. Master active listening.",
+      "objectives": [
+        "Develop active listening skills",
+        "Learn to paraphrase and reflect",
+        "Recognize buying signals in responses"
+      ],
+      "keyPoints": [
+        "Listen to understand, not to respond",
+        "Take notes to show you care",
+        "Paraphrase to confirm understanding"
+      ],
+      "exercises": [
+        {
+          "id": "mod-03-les-04-ex-01",
+          "type": "practice",
+          "title": "Paraphrase Challenge",
+          "instructions": "In your next conversation, paraphrase every response before asking your next question."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "mod-03-scn-01",
+      "moduleId": "mod-03",
+      "title": "Discovery Deep Dive",
+      "description": "Conduct a full discovery call with a prospect who has complex needs.",
+      "difficulty": 3,
+      "personaHint": "Use the friendly-manager persona. Focus on uncovering 3+ pain points."
+    },
+    {
+      "id": "mod-03-scn-02",
+      "moduleId": "mod-03",
+      "title": "The One-Word Responder",
+      "description": "Practice getting a taciturn prospect to open up through skillful questioning.",
+      "difficulty": 4,
+      "personaHint": "Use the skeptical-cfo persona. Work to build rapport through questions."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "mod-02",
+  "number": 2,
+  "title": "Opening Scripts and Hooks",
+  "description": "Craft compelling openings that capture attention and earn the right to continue.",
+  "lessons": [
+    {
+      "id": "mod-02-les-01",
+      "moduleId": "mod-02",
+      "title": "The First 10 Seconds",
+      "order": 1,
+      "content": "You have about 10 seconds to earn attention. Learn how to make every word count.",
+      "objectives": [
+        "Understand what makes an opening effective",
+        "Learn the anatomy of a great hook",
+        "Practice different opening styles"
+      ],
+      "keyPoints": [
+        "Lead with value, not your name and company",
+        "Pattern interrupt to stand out from other callers",
+        "Match your energy to your prospect's world"
+      ],
+      "exercises": [
+        {
+          "id": "mod-02-les-01-ex-01",
+          "type": "practice",
+          "title": "Hook Workshop",
+          "instructions": "Write 5 different opening hooks for the same target persona. Test them in role-play."
+        }
+      ]
+    },
+    {
+      "id": "mod-02-les-02",
+      "moduleId": "mod-02",
+      "title": "Permission-Based Openings",
+      "order": 2,
+      "content": "Asking for permission shows respect and increases engagement. Learn when and how to use this technique.",
+      "objectives": [
+        "Understand permission-based selling",
+        "Learn different permission frameworks",
+        "Know when to ask and when to lead"
+      ],
+      "keyPoints": [
+        "\"Is now a bad time?\" often gets better results than \"Do you have a minute?\"",
+        "Permission creates psychological commitment",
+        "Some situations call for direct approaches"
+      ],
+      "exercises": [
+        {
+          "id": "mod-02-les-02-ex-01",
+          "type": "roleplay",
+          "title": "Permission Practice",
+          "instructions": "Practice 3 calls using permission-based openings with the AI prospect.",
+          "scenarioId": "mod-02-scn-01"
+        }
+      ]
+    },
+    {
+      "id": "mod-02-les-03",
+      "moduleId": "mod-02",
+      "title": "Value Proposition Statements",
+      "order": 3,
+      "content": "Your value prop must be clear, specific, and relevant. Learn to articulate value in seconds.",
+      "objectives": [
+        "Craft a compelling value proposition",
+        "Customize value props by persona",
+        "Deliver value props naturally"
+      ],
+      "keyPoints": [
+        "Focus on outcomes, not features",
+        "Use numbers when possible",
+        "Make it about them, not you"
+      ],
+      "exercises": [
+        {
+          "id": "mod-02-les-03-ex-01",
+          "type": "practice",
+          "title": "Value Prop Builder",
+          "instructions": "Create value propositions for 3 different decision-maker personas."
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "mod-02-scn-01",
+      "moduleId": "mod-02",
+      "title": "Breaking Through to a Busy Executive",
+      "description": "Practice your opening on a time-pressed VP who gets 20 cold calls a day.",
+      "difficulty": 3,
+      "personaHint": "Use the busy-exec persona. Be concise and lead with value."
+    },
+    {
+      "id": "mod-02-scn-02",
+      "moduleId": "mod-02",
+      "title": "The Skeptical Gatekeeper",
+      "description": "Get past a protective assistant to reach the decision-maker.",
+      "difficulty": 2,
+      "personaHint": "Focus on being professional and providing value to the gatekeeper."
+    }
+  ]
+}

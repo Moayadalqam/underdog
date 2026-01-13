@@ -1,0 +1,56 @@
+# ===========================================
+# Underdog AI - Code Ownership for Parallel Agent Development
+# ===========================================
+# Each stream owns specific directories to prevent merge conflicts
+# during parallel development phases.
+
+# ----- Stream 1: Core Platform & Infrastructure -----
+/packages/core/           @stream-1
+/packages/database/       @stream-1
+/packages/auth/           @stream-1
+/apps/web/app/(auth)/     @stream-1
+/apps/web/components/ui/  @stream-1
+/infrastructure/          @stream-1
+/.github/                 @stream-1
+/turbo.json               @stream-1
+/tsconfig.json            @stream-1
+/package.json             @stream-1
+/pnpm-workspace.yaml      @stream-1
+
+# ----- Stream 2: AI Role-Play Engine (Voice) -----
+/packages/voice/          @stream-2
+/packages/ai-engine/      @stream-2
+/packages/conversation/   @stream-2
+/apps/web/app/roleplay/   @stream-2
+/apps/web/components/roleplay/ @stream-2
+/content/personas/        @stream-2
+
+# ----- Stream 3: Training Content & Curriculum -----
+/packages/curriculum/     @stream-3
+/packages/objections/     @stream-3
+/content/curriculum/      @stream-3
+/content/objections/      @stream-3
+/apps/web/app/curriculum/ @stream-3
+/apps/web/components/curriculum/ @stream-3
+
+# ----- Stream 4: Analytics & Feedback Engine -----
+/packages/analytics/      @stream-4
+/packages/feedback/       @stream-4
+/packages/scoring/        @stream-4
+/apps/web/app/analytics/  @stream-4
+/apps/web/components/analytics/ @stream-4
+
+# ----- Stream 5: Call Recording Pipeline -----
+/packages/recordings/     @stream-5
+/packages/transcription/  @stream-5
+/apps/web/app/recordings/ @stream-5
+/apps/web/components/recordings/ @stream-5
+
+# ----- Stream 6: Admin Console -----
+/packages/admin/          @stream-6
+/apps/admin/              @stream-6
+/apps/web/app/admin/      @stream-6
+
+# ----- Shared (Requires Multi-Stream Review) -----
+# Changes to these files require approval from all affected streams
+/packages/core/types/     @stream-1 @stream-2 @stream-3 @stream-4 @stream-5 @stream-6
