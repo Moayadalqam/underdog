@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mic,
   BookOpen,
@@ -11,10 +11,13 @@ import {
   Settings,
   Menu,
   X,
+  LogOut,
+  User,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/hooks/use-auth';
 
 const navItems = [
   { href: '/roleplay', label: 'Role-Play', icon: Mic },
@@ -26,6 +29,8 @@ const navItems = [
 export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { user, loading, signOut } = useAuth();
 
   return (
     <motion.header
@@ -80,12 +85,91 @@ export function Navbar() {
 
             {/* Actions */}
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="hidden md:flex">
-                <Settings size={20} />
-              </Button>
-              <Button variant="gradient" size="sm" className="hidden sm:flex">
-                Start Training
-              </Button>
+              {!loading && (
+                <>
+                  {user ? (
+                    <>
+                      <Button variant="ghost" size="icon" className="hidden md:flex">
+                        <Settings size={20} />
+                      </Button>
+                      {/* User menu */}
+                      <div className="relative">
+                        <button
+                          onClick={() => setUserMenuOpen(!userMenuOpen)}
+                          className={cn(
+                            'flex items-center gap-2 px-3 py-2 rounded-xl',
+                            'hover:bg-accent/10 transition-colors'
+                          )}
+                        >
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-magenta flex items-center justify-center">
+                            <span className="text-white text-sm font-medium">
+                              {user.user_metadata?.name?.[0]?.toUpperCase() ||
+                                user.email?.[0]?.toUpperCase() ||
+                                'U'}
+                            </span>
+                          </div>
+                          <span className="hidden sm:block text-sm font-medium max-w-[100px] truncate">
+                            {user.user_metadata?.name || user.email?.split('@')[0]}
+                          </span>
+                        </button>
+
+                        <AnimatePresence>
+                          {userMenuOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                              className="absolute right-0 mt-2 w-56 rounded-xl bg-card border border-border shadow-xl overflow-hidden"
+                            >
+                              <div className="px-4 py-3 border-b border-border">
+                                <p className="text-sm font-medium truncate">
+                                  {user.user_metadata?.name || 'User'}
+                                </p>
+                                <p className="text-xs text-muted-foreground truncate">
+                                  {user.email}
+                                </p>
+                              </div>
+                              <div className="p-2">
+                                <Link
+                                  href="/settings"
+                                  onClick={() => setUserMenuOpen(false)}
+                                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-accent/10 transition-colors"
+                                >
+                                  <Settings size={16} />
+                                  Settings
+                                </Link>
+                                <button
+                                  onClick={() => {
+                                    signOut();
+                                    setUserMenuOpen(false);
+                                  }}
+                                  className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-red-500 hover:bg-red-500/10 transition-colors"
+                                >
+                                  <LogOut size={16} />
+                                  Sign out
+                                </button>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <Link href="/login">
+                        <Button variant="ghost" size="sm" className="hidden sm:flex">
+                          Sign In
+                        </Button>
+                      </Link>
+                      <Link href="/signup">
+                        <Button variant="gradient" size="sm" className="hidden sm:flex">
+                          Get Started
+                        </Button>
+                      </Link>
+                    </>
+                  )}
+                </>
+              )}
 
               {/* Mobile menu button */}
               <Button
@@ -128,9 +212,31 @@ export function Navbar() {
                     </Link>
                   );
                 })}
-                <Button variant="gradient" className="mt-2">
-                  Start Training
-                </Button>
+                {user ? (
+                  <button
+                    onClick={() => {
+                      signOut();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-500 hover:bg-red-500/10 transition-colors mt-2"
+                  >
+                    <LogOut size={20} />
+                    Sign Out
+                  </button>
+                ) : (
+                  <div className="flex flex-col gap-2 mt-2">
+                    <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                      <Button variant="outline" className="w-full">
+                        Sign In
+                      </Button>
+                    </Link>
+                    <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
+                      <Button variant="gradient" className="w-full">
+                        Get Started
+                      </Button>
+                    </Link>
+                  </div>
+                )}
               </div>
             </motion.div>
           )}
