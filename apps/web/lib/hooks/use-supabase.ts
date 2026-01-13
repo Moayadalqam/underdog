@@ -6,7 +6,7 @@
 // Custom hooks for data fetching with Supabase
 
 import { useState, useEffect, useCallback } from 'react';
-import { createTypedBrowserClient } from '@/lib/supabase/typed-client';
+import { createClient } from '@/lib/supabase/client';
 import type { User, Session, AuthChangeEvent } from '@supabase/supabase-js';
 import type {
   Profile,
@@ -27,7 +27,7 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const supabase = createTypedBrowserClient();
+    const supabase = createClient();
 
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -51,7 +51,7 @@ export function useAuth() {
   }, []);
 
   const signOut = useCallback(async () => {
-    const supabase = createTypedBrowserClient();
+    const supabase = createClient();
     await supabase.auth.signOut();
   }, []);
 
@@ -80,7 +80,7 @@ export function useProfile() {
 
     try {
       setLoading(true);
-      const supabase = createTypedBrowserClient();
+      const supabase = createClient();
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
@@ -118,7 +118,7 @@ export function useCurriculumModules() {
   const fetchModules = useCallback(async () => {
     try {
       setLoading(true);
-      const supabase = createTypedBrowserClient();
+      const supabase = createClient();
       const { data, error } = await supabase
         .from('curriculum_modules')
         .select('*')
@@ -158,7 +158,7 @@ export function useCurriculumModule(moduleId: string | null) {
 
     try {
       setLoading(true);
-      const supabase = createTypedBrowserClient();
+      const supabase = createClient();
       const { data, error } = await supabase
         .from('curriculum_modules')
         .select(`
@@ -207,7 +207,7 @@ export function useTrainingSessions(limit: number = 10) {
 
     try {
       setLoading(true);
-      const supabase = createTypedBrowserClient();
+      const supabase = createClient();
       const { data, error } = await supabase
         .from('training_sessions')
         .select('*')
@@ -245,7 +245,7 @@ export function useRealtimeSubscription<T>(
   const [data, setData] = useState<T[]>([]);
 
   useEffect(() => {
-    const supabase = createTypedBrowserClient();
+    const supabase = createClient();
 
     const channel = supabase
       .channel(`${table}-changes`)

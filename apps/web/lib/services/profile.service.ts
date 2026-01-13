@@ -3,7 +3,7 @@
 // ===========================================
 // Type-safe profile operations with Supabase
 
-import { createTypedBrowserClient } from '@/lib/supabase/typed-client';
+import { createClient } from '@/lib/supabase/client';
 import type {
   Profile,
   ProfileUpdate,
@@ -11,7 +11,7 @@ import type {
 } from '@underdog/database';
 
 export class ProfileService {
-  private supabase = createTypedBrowserClient();
+  private supabase = createClient();
 
   // ===========================================
   // READ Operations

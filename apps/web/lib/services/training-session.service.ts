@@ -3,7 +3,7 @@
 // ===========================================
 // Type-safe training session operations with Supabase
 
-import { createTypedBrowserClient } from '@/lib/supabase/typed-client';
+import { createClient } from '@/lib/supabase/client';
 import type {
   TrainingSession,
   TrainingSessionInsert,
@@ -14,7 +14,7 @@ import type {
 } from '@underdog/database';
 
 export class TrainingSessionService {
-  private supabase = createTypedBrowserClient();
+  private supabase = createClient();
 
   // ===========================================
   // CREATE Operations

@@ -3,7 +3,7 @@
 // ===========================================
 // Type-safe curriculum operations with Supabase
 
-import { createTypedBrowserClient } from '@/lib/supabase/typed-client';
+import { createClient } from '@/lib/supabase/client';
 import type {
   CurriculumModule,
   CurriculumModuleInsert,
@@ -17,7 +17,7 @@ import type {
 } from '@underdog/database';
 
 export class CurriculumService {
-  private supabase = createTypedBrowserClient();
+  private supabase = createClient();
 
   // ===========================================
   // Module Operations
@@ -105,10 +105,10 @@ export class CurriculumService {
   /**
    * Create a new module (trainer/admin only)
    */
-  async createModule(module: CurriculumModuleInsert): Promise<CurriculumModule> {
+  async createModule(moduleData: CurriculumModuleInsert): Promise<CurriculumModule> {
     const { data, error } = await this.supabase
       .from('curriculum_modules')
-      .insert(module)
+      .insert(moduleData as never)
       .select()
       .single();
 
@@ -117,7 +117,7 @@ export class CurriculumService {
       throw error;
     }
 
-    return data;
+    return data as CurriculumModule;
   }
 
   /**
@@ -126,7 +126,7 @@ export class CurriculumService {
   async updateModule(id: string, updates: CurriculumModuleUpdate): Promise<CurriculumModule> {
     const { data, error } = await this.supabase
       .from('curriculum_modules')
-      .update(updates)
+      .update(updates as never)
       .eq('id', id)
       .select()
       .single();
@@ -136,7 +136,7 @@ export class CurriculumService {
       throw error;
     }
 
-    return data;
+    return data as CurriculumModule;
   }
 
   // ===========================================
@@ -185,7 +185,7 @@ export class CurriculumService {
   async createLesson(lesson: LessonInsert): Promise<Lesson> {
     const { data, error } = await this.supabase
       .from('lessons')
-      .insert(lesson)
+      .insert(lesson as never)
       .select()
       .single();
 
@@ -194,7 +194,7 @@ export class CurriculumService {
       throw error;
     }
 
-    return data;
+    return data as Lesson;
   }
 
   // ===========================================
@@ -292,7 +292,7 @@ export class CurriculumService {
 
     const { data, error } = await this.supabase
       .from('user_progress')
-      .upsert(progress, {
+      .upsert(progress as never, {
         onConflict: 'user_id,module_id,lesson_id',
       })
       .select()
@@ -303,7 +303,7 @@ export class CurriculumService {
       throw error;
     }
 
-    return data;
+    return data as UserProgress;
   }
 
   /**
