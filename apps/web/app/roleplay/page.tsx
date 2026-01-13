@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mic,
@@ -59,6 +60,7 @@ const personas = [
 ];
 
 export default function RolePlayPage() {
+  const router = useRouter();
   const [sessionState, setSessionState] = useState<SessionState>('idle');
   const [selectedScenario, setSelectedScenario] = useState<string | null>(null);
   const [selectedPersona, setSelectedPersona] = useState(personas[0]);
@@ -76,10 +78,12 @@ export default function RolePlayPage() {
 
   const endSession = () => {
     setSessionState('ended');
+    // Redirect to results page after showing "ended" state briefly
     setTimeout(() => {
-      setSessionState('idle');
-      setSelectedScenario(null);
-    }, 3000);
+      // Generate a mock session ID - in production this would be from the backend
+      const sessionId = `session-${Date.now()}`;
+      router.push(`/roleplay/results/${sessionId}`);
+    }, 2000);
   };
 
   return (

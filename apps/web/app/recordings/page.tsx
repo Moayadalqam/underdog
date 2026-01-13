@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Upload,
@@ -307,10 +308,12 @@ export default function RecordingsPage() {
 
                         {/* Actions */}
                         <div className="flex items-center gap-2">
-                          <Button variant="ghost" size="sm" className="hidden sm:flex">
-                            View Analysis
-                            <ChevronRight size={16} className="ml-1" />
-                          </Button>
+                          <Link href={`/recordings/${recording.id}`}>
+                            <Button variant="ghost" size="sm" className="hidden sm:flex">
+                              View Analysis
+                              <ChevronRight size={16} className="ml-1" />
+                            </Button>
+                          </Link>
                           <Button variant="ghost" size="icon">
                             <MoreVertical size={18} />
                           </Button>

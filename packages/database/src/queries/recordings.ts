@@ -3,7 +3,9 @@
 // ===========================================
 
 import { prisma } from '../client';
-import type { RecordingStatus } from '@prisma/client';
+
+// Define RecordingStatus type to match Prisma schema
+type RecordingStatus = 'uploading' | 'processing' | 'transcribed' | 'analyzed' | 'failed';
 
 export async function createRecording(data: {
   userId: string;

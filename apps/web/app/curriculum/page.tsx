@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -13,6 +14,7 @@ import {
   Trophy,
   Target,
   Zap,
+  Loader2,
 } from 'lucide-react';
 import { Navbar } from '@/components/navigation/navbar';
 import { Button, MotionButton } from '@/components/ui/button';
@@ -20,116 +22,18 @@ import { GlowCard, GlassCard } from '@/components/ui/glow-card';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/motion';
 import { cn } from '@/lib/utils';
 
-const modules = [
-  {
-    number: 1,
-    title: 'Mindset & Preparation',
-    description: 'Build the mental foundation for cold calling success',
-    lessons: 5,
-    duration: '45 min',
-    progress: 100,
-    status: 'completed' as const,
-  },
-  {
-    number: 2,
-    title: 'Opening Strong',
-    description: 'Craft compelling openers that grab attention',
-    lessons: 6,
-    duration: '60 min',
-    progress: 75,
-    status: 'in_progress' as const,
-  },
-  {
-    number: 3,
-    title: 'Building Rapport',
-    description: 'Connect authentically in the first 30 seconds',
-    lessons: 4,
-    duration: '40 min',
-    progress: 0,
-    status: 'unlocked' as const,
-  },
-  {
-    number: 4,
-    title: 'Discovery Questions',
-    description: 'Uncover pain points with strategic questioning',
-    lessons: 7,
-    duration: '55 min',
-    progress: 0,
-    status: 'unlocked' as const,
-  },
-  {
-    number: 5,
-    title: 'Objection Handling',
-    description: 'Turn "no" into "tell me more"',
-    lessons: 8,
-    duration: '70 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 6,
-    title: 'Value Proposition',
-    description: 'Articulate your offer with impact',
-    lessons: 5,
-    duration: '50 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 7,
-    title: 'Closing Techniques',
-    description: 'Secure the meeting with confidence',
-    lessons: 6,
-    duration: '55 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 8,
-    title: 'Handling Gatekeepers',
-    description: 'Navigate past assistants and receptionists',
-    lessons: 4,
-    duration: '35 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 9,
-    title: 'Voicemail Mastery',
-    description: 'Leave messages that get callbacks',
-    lessons: 3,
-    duration: '25 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 10,
-    title: 'Follow-up Strategy',
-    description: 'Persistence without being pushy',
-    lessons: 5,
-    duration: '45 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 11,
-    title: 'Advanced Techniques',
-    description: 'Pattern interrupts and psychological triggers',
-    lessons: 6,
-    duration: '60 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-  {
-    number: 12,
-    title: 'Putting It All Together',
-    description: 'Full call simulations and mastery assessment',
-    lessons: 4,
-    duration: '90 min',
-    progress: 0,
-    status: 'locked' as const,
-  },
-];
+type ModuleStatus = 'completed' | 'in_progress' | 'unlocked' | 'locked';
+
+interface Module {
+  id: string;
+  number: number;
+  title: string;
+  description: string;
+  lessonsCount: number;
+  scenariosCount: number;
+  progress: number;
+  status: ModuleStatus;
+}
 
 const statusConfig = {
   completed: {
@@ -159,10 +63,50 @@ const statusConfig = {
 };
 
 export default function CurriculumPage() {
+  const [modules, setModules] = useState<Module[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchModules() {
+      try {
+        const res = await fetch('/api/curriculum');
+        if (res.ok) {
+          const data = await res.json();
+          // Add default status and progress for now (will be dynamic with user progress later)
+          const modulesWithStatus: Module[] = data.map((m: any, idx: number) => ({
+            ...m,
+            progress: 0,
+            status: (idx < 4 ? 'unlocked' : 'locked') as ModuleStatus,
+          }));
+          setModules(modulesWithStatus);
+        }
+      } catch (error) {
+        console.error('Failed to fetch modules:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchModules();
+  }, []);
+
   const completedModules = modules.filter((m) => m.status === 'completed').length;
-  const totalProgress = Math.round(
-    modules.reduce((acc, m) => acc + m.progress, 0) / modules.length
-  );
+  const totalProgress = modules.length > 0
+    ? Math.round(modules.reduce((acc, m) => acc + m.progress, 0) / modules.length)
+    : 0;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen pb-20">
+        <Navbar />
+        <main className="pt-28 px-4 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            <p className="text-muted-foreground">Loading curriculum...</p>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pb-20">
@@ -280,11 +224,11 @@ export default function CurriculumPage() {
                       <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                         <span className="flex items-center gap-1">
                           <BookOpen size={12} />
-                          {module.lessons} lessons
+                          {module.lessonsCount || 0} lessons
                         </span>
                         <span className="flex items-center gap-1">
                           <Clock size={12} />
-                          {module.duration}
+                          ~{(module.lessonsCount || 1) * 10} min
                         </span>
                       </div>
 
