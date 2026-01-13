@@ -1,4 +1,6 @@
 {
   "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "cd ../.. && pnpm turbo build --filter=@underdog/web"
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=@underdog/web",
+  "outputDirectory": ".next",
+  "framework": "nextjs"
 }
