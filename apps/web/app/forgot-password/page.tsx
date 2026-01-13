@@ -58,12 +58,12 @@ export default function ForgotPasswordPage() {
             We&apos;ve sent a password reset link to <strong>{email}</strong>.
             Click the link to reset your password.
           </p>
-          <Button variant="outline" asChild>
-            <Link href="/login">
+          <Link href="/login">
+            <Button variant="outline">
               <ArrowLeft size={18} className="mr-2" />
               Back to Login
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </FadeIn>
       </div>
     );
@@ -149,12 +149,12 @@ export default function ForgotPasswordPage() {
               )}
             </Button>
 
-            <Button variant="ghost" size="lg" className="w-full" asChild>
-              <Link href="/login">
+            <Link href="/login" className="w-full">
+              <Button variant="ghost" size="lg" className="w-full">
                 <ArrowLeft size={18} className="mr-2" />
                 Back to Login
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </form>
         </GlassCard>
       </FadeIn>
